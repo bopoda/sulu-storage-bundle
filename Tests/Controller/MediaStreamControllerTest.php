@@ -130,7 +130,7 @@ class MediaStreamControllerTest extends TestCase
         $this->assertFalse($actual->headers->has('X-Robots-Tag'));
         $this->assertSame($actual->headers->get('Content-Type'), $expectedMimeType);
         $this->assertSame($actual->headers->get('Content-Disposition'), 'attachment; filename="example.jpeg"');
-        $this->assertSame($actual->headers->get('Content-Length'), $fileSize);
+        $this->assertSame($actual->headers->get('Content-Length'), (string)$fileSize);
         $this->assertSame($actual->headers->get('Last-Modified'), $lastModified->format('D, d M Y H:i:s \G\M\T'));
     }
 
@@ -215,7 +215,7 @@ class MediaStreamControllerTest extends TestCase
         $this->assertSame($actual->headers->get('X-Robots-Tag'), 'noindex, follow');
         $this->assertSame($actual->headers->get('Content-Type'), $mimeType);
         $this->assertSame($actual->headers->get('Content-Disposition'), 'attachment; filename="example.jpeg"');
-        $this->assertSame($actual->headers->get('Content-Length'), $fileSize);
+        $this->assertSame($actual->headers->get('Content-Length'), (string)$fileSize);
         $this->assertSame($actual->headers->get('Last-Modified'), $lastModified->format('D, d M Y H:i:s \G\M\T'));
     }
 
