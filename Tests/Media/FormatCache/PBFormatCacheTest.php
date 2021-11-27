@@ -85,7 +85,7 @@ class PBFormatCacheTest extends TestCase
         // Mock FileResolverInterface::resolveFormatFilePath()
         $expectedFilePath = $format.'/'.ltrim($expectedSegmentPath, '/').'/'.$fileName;
         $this->frMock
-            ->resolveFormatFilePath($expectedSegmentPath, $format, $fileName)
+            ->resolveFormatFilePath($id, $expectedSegmentPath, $format, $fileName)
             ->shouldBeCalledTimes(1)
             ->willReturn($expectedFilePath);
         ;
@@ -130,7 +130,7 @@ class PBFormatCacheTest extends TestCase
 
         // Mock FileResolverInterface::resolveFormatFilePath()
         $this->frMock
-            ->resolveFormatFilePath($expectedSegmentPath, $format, $fileName)
+            ->resolveFormatFilePath($id, $expectedSegmentPath, $format, $fileName)
             ->shouldBeCalledTimes(1)
             ->willReturn($expectedFilePath);
         ;
@@ -164,7 +164,7 @@ class PBFormatCacheTest extends TestCase
         // End
 
         // Mock FileResolverInterface::resolveFilePath()
-        $this->frMock->resolveFormatFilePath('/05', $format, $fileName)->shouldBeCalledTimes(1)->willReturn($formatFilePath);
+        $this->frMock->resolveFormatFilePath($id, '/05', $format, $fileName)->shouldBeCalledTimes(1)->willReturn($formatFilePath);
         // End
 
         // Mock FilesystemProviderInterface::write()
@@ -194,7 +194,7 @@ class PBFormatCacheTest extends TestCase
         // End
 
         // Mock FileResolverInterface::resolveFilePath()
-        $this->frMock->resolveFormatFilePath('/05', $format, $fileName)->shouldBeCalledTimes(1)->willReturn($formatFilePath);
+        $this->frMock->resolveFormatFilePath($id, '/05', $format, $fileName)->shouldBeCalledTimes(1)->willReturn($formatFilePath);
         // End
 
         // Mock FilesystemProviderInterface::write()
@@ -223,7 +223,7 @@ class PBFormatCacheTest extends TestCase
             $filePath = '/'.$format['key'].'/01/'.$fileName;
 
             // Mock FileResolverInterface::resolveFilePath()
-            $this->frMock->resolveFormatFilePath('/01', $format['key'], $fileName)->shouldBeCalledTimes(1)->willReturn($filePath);
+            $this->frMock->resolveFormatFilePath($id, '/01', $format['key'], $fileName)->shouldBeCalledTimes(1)->willReturn($filePath);
             // End
 
             // Mock FilesystemProviderInterface::remove()
@@ -253,7 +253,7 @@ class PBFormatCacheTest extends TestCase
             $filePath = '/'.$format['key'].'/01/'.$fileName;
 
             // Mock FileResolverInterface::resolveFilePath()
-            $this->frMock->resolveFormatFilePath('/01', $format['key'], $fileName)->shouldBeCalledTimes(1)->willReturn($filePath);
+            $this->frMock->resolveFormatFilePath($id, '/01', $format['key'], $fileName)->shouldBeCalledTimes(1)->willReturn($filePath);
             // End
 
             // Mock FilesystemProviderInterface::remove()

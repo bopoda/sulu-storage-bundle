@@ -42,11 +42,12 @@ interface FileResolverInterface
     /**
      * Resolve format file path.
      *
+     * @param int $id
      * @param string $folder
      * @param string $format
      * @param string $fileName
      *
      * @return string
      */
-    public function resolveFormatFilePath($folder, $format, $fileName);
+    public function resolveFormatFilePath($id, $folder, $format, $fileName);
 }

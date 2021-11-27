@@ -190,9 +190,9 @@ class FileResolverTest extends TestCase
     public function resolveFormatFilePathDataProvider()
     {
         return [
-            ['/format-1/foo/bar/file.jpeg', '/foo/bar', 'format-1', 'file.jpeg'],
-            ['/format-2/foo/bar/file.jpeg', '/foo/bar/', 'format-2', '/file.jpeg'],
-            ['/format-3/foo/bar/file.jpeg', 'foo/bar/', '/format-3', '/file.jpeg'],
+            ['/format-1/foo/bar/1-file.jpeg', 1, '/foo/bar', 'format-1', 'file.jpeg'],
+            ['/format-2/foo/bar/20-file.jpeg', 20, '/foo/bar/', 'format-2', 'file.jpeg'],
+            ['/format-3/foo/bar/30-file.jpeg', 30, 'foo/bar/', '/format-3', 'file.jpeg'],
         ];
     }
 
@@ -200,14 +200,15 @@ class FileResolverTest extends TestCase
      * @dataProvider resolveFormatFilePathDataProvider
      *
      * @param $expected
+     * @param $id
      * @param $folder
      * @param $format
      * @param $fileName
      */
-    public function testResolveFormatFilePath($expected, $folder, $format, $fileName)
+    public function testResolveFormatFilePath($expected, $id, $folder, $format, $fileName)
     {
         // When
-        $actual = $this->buildResolver()->resolveFormatFilePath($folder, $format, $fileName);
+        $actual = $this->buildResolver()->resolveFormatFilePath($id, $folder, $format, $fileName);
 
         // Then
         $this->assertSame($expected, $actual);
