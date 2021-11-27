@@ -62,7 +62,7 @@ final class PBFormatCache extends LocalFormatCache implements FormatCacheInterfa
     {
         $segmentPath = '/'.$this->getSegment($id);
         $fileName = $this->fileResolver->resolveFileName($fileName);
-        $filePath = $this->fileResolver->resolveFormatFilePath($segmentPath, $format, $fileName);
+        $filePath = $this->fileResolver->resolveFormatFilePath($id, $segmentPath, $format, $fileName);
 
         if (false === $this->filesystemProvider->exists($filePath)) {
             return null;
@@ -82,7 +82,7 @@ final class PBFormatCache extends LocalFormatCache implements FormatCacheInterfa
     {
         $segmentPath = '/'.$this->getSegment($id);
         $fileName = $this->fileResolver->resolveFileName($fileName);
-        $filePath = $this->fileResolver->resolveFormatFilePath($segmentPath, $format, $fileName);
+        $filePath = $this->fileResolver->resolveFormatFilePath($id, $segmentPath, $format, $fileName);
 
         try {
             $this->filesystemProvider->write($filePath, $content);
@@ -102,7 +102,7 @@ final class PBFormatCache extends LocalFormatCache implements FormatCacheInterfa
         $fileName = $this->fileResolver->resolveFileName($fileName);
 
         foreach ($this->formats as $format) {
-            $filePath = $this->fileResolver->resolveFormatFilePath($segmentPath, $format['key'], $fileName);
+            $filePath = $this->fileResolver->resolveFormatFilePath($id, $segmentPath, $format['key'], $fileName);
 
             try {
                 $this->filesystemProvider->delete($filePath);

@@ -103,9 +103,9 @@ class FileResolver implements FileResolverInterface
     /**
      * {@inheritdoc}
      */
-    public function resolveFormatFilePath($folder, $format, $fileName)
+    public function resolveFormatFilePath($id, $folder, $format, $fileName)
     {
-        $path = $this->resolveFilePath($folder, $fileName);
+        $path = $this->resolveFilePath($folder, $id.'-'.$fileName);
 
         return '/'.ltrim($format, '/').'/'.ltrim($path, '/');
     }
