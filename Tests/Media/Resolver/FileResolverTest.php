@@ -110,8 +110,8 @@ class FileResolverTest extends TestCase
     public function resolveFileNameDataProvider()
     {
         return [
-            'filename without extension' => ['example',  'example', 'ExaMp%%lE', 'ExaMp%%lE'],
-            'filename with extension' => ['foo.jpg', 'foo', 'FoO', 'FoO.jpg'],
+            'filename without extension' => ['example',  'example'],
+            'filename with extension' => ['foo.jpg', 'foo.jpg'],
         ];
     }
 
@@ -123,14 +123,8 @@ class FileResolverTest extends TestCase
      * @param string $toNormalize
      * @param string $fileName
      */
-    public function testResolveFileName($expected, $expectedNormalized, $toNormalize, $fileName)
+    public function testResolveFileName($expected, $fileName)
     {
-        // Given
-
-        // Mock PathCleanupInterface::cleanup()
-        $this->pcMock->cleanup($toNormalize)->shouldBeCalledTimes(1)->willReturn($expectedNormalized);
-        // End
-
         // When
         $actual = $this->buildResolver()->resolveFileName($fileName);
 

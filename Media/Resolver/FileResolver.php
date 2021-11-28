@@ -59,14 +59,7 @@ class FileResolver implements FileResolverInterface
      */
     public function resolveFileName($originalFileName)
     {
-        $pathParts = pathinfo($originalFileName);
-        $fileName = $this->pathCleaner->cleanup($pathParts['filename']);
-
-        if (isset($pathParts['extension'])) {
-            $fileName .= '.'.$pathParts['extension'];
-        };
-
-        return $fileName;
+        return $originalFileName;
     }
 
     /**

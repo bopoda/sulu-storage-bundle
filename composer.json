@@ -1,5 +1,5 @@
 {
-    "name": "pawel-brzezinski/sulu-storage-bundle",
+    "name": "bopoda/sulu-storage-bundle",
     "description": "Custom implements of filesystem for Sulu storage. This bundle replaces standard Sulu Media Storage filesystem.",
     "type": "sulu-bundle",
     "license": "MIT",
@@ -9,7 +9,7 @@
             "email": "pawel.brzezinski@smartint.pl"
         }
     ],
-    "homepage": "https://github.com/pawel-brzezinski/sulu-storage-bundle",
+    "homepage": "https://github.com/bopoda/sulu-storage-bundle",
     "autoload": {
         "psr-4": {
             "PB\\Bundle\\SuluStorageBundle\\": ""
